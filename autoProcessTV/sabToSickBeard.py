@@ -56,5 +56,5 @@ group_NZB = sys.argv[6] if len(sys.argv) > 7 else None
 # 7  Status of post processing. 0 = OK, 1=failed verification, 2=failed unpack, 3=1+2
 sab_post_processing_status = sys.argv[7] if len(sys.argv) > 8 else None
 
-# Only final_dir and org_NZB_name are being used to process episodes
-autoProcessTV.processEpisode(download_final_dir, org_NZB_name)
+# Only final_dir, org_NZB_name and post-processing status are being used to process episodes
+autoProcessTV.processEpisode(download_final_dir, org_NZB_name, sab_post_processing_status)

@@ -55,7 +55,7 @@ class AuthURLOpener(FancyURLopener):
         return FancyURLopener.open(self, url)
 
 
-def processEpisode(dir_to_process, org_NZB_name=None):
+def processEpisode(dir_to_process, org_NZB_name=None, sab_post_processing_status=None):
 
     # Default values
     host = "localhost"
@@ -121,8 +121,12 @@ def processEpisode(dir_to_process, org_NZB_name=None):
     params['quiet'] = 1
 
     params['dir'] = dir_to_process
+
     if org_NZB_name != None:
         params['nzbName'] = org_NZB_name
+    
+    if sab_post_processing_status != None:
+        params['failed'] = sab_post_processing_status
 
     myOpener = AuthURLOpener(username, password)
 
